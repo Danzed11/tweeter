@@ -1,0 +1,31 @@
+
+ textarea {
+  width: 100%;
+  padding: 6px
+}
+
+span.counter {
+  float: right;
+}
+
+h2 {
+  font-size: 30px;
+  border-bottom: 1px solid black;
+  margin-top: 0px;
+}
+
+section.new-tweet {
+  background-color: rgb(211, 205, 205);
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+
+}
+
+
+/* Boxed area */
+
+
+input .button {
+  float: right;
+}
