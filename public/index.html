@@ -17,6 +17,9 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- <script type="text/javascript" src="/server/data-files/initial-tweets.json"></script> -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -31,12 +34,27 @@
     <main class="container">
         <section class="new-tweet">
             <h2>Compose Tweet</h2>
-            <form action=/tweets method="POST">
+            <form action=/tweets method="POST"> 
               <textarea name="text" class="entry" placeholder="What are you humming about?"></textarea>
               <input type="submit" class="button" value="Tweet">
               <span class="counter">140</span>
             </form>
           </section>
+          <section id="compose-tweet" >
+              <article class="shadow" id="tweet">
+                <header class="shadow" class="tweetheader">Billy Madison <div>@zacdan</div><img src="https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png"/> </header>
+                
+                <p class="centered-tweet"> Dan is the best person in the world! Dan is the best person in the world! Dan is the best person in the world! </p>
+                <footer class="tweet-footer"> May 14, 2019</footer>
+                </article>
+                <article class="shadow" id="tweet">
+                    <header class="shadow" class="tweetheader">Billy Madison <div>@zacdan</div><img src="https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png"/> </header>
+                    
+                    <p class="centered-tweet"> Dan is the best person in the world! Dan is the best person in the world! Dan is the best person in the world! </p>
+                    <footer class="tweet-footer"> May 14, 2019</footer>
+                    </article>
+
+            </section>
     </main>
 
   </body>

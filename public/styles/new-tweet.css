@@ -14,6 +14,7 @@ h2 {
   margin-top: 0px;
 }
 
+/* Compose the new tweet */
 section.new-tweet {
   background-color: rgb(211, 205, 205);
   padding: 10px;
@@ -22,10 +23,65 @@ section.new-tweet {
 
 }
 
+header {
+  height: 60px;
+  padding: 6px;
+  font-size: 24px;
+}
 
-/* Boxed area */
+header img {
+  width: 40px;
+  height: 40px;
+  float: left;
+  border-radius: 8px;
+}
 
+header.tweetheader {
+  font-size: 24px;
+  padding: 8px;
+  opacity: 1;
+}
 
+header div {
+  float: right;
+  font-size: 14px;
+}
+
+article#tweet {
+  padding: 0px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: rgb(211, 205, 205);
+  overflow: hidden;
+}
+
+article#tweet {
+  border: 1px solid;
+  border-radius: 10px;
+  opacity: 1;
+}
+.shadow:hover {
+  opacity: 1;
+}
+
+.shadow{
+  opacity: .8;
+}
+
+footer {
+  border-top: 1px solid rgb(165, 160, 160);
+  padding: 8px;
+  background-color: white;
+
+}
+p.centered-tweet {
+  display: inline-block;
+  padding: 10px;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  background-color: white;
+  opacity: 1;
+}
 input .button {
   float: right;
 }
