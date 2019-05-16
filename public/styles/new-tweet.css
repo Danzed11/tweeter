@@ -24,6 +24,7 @@ section.new-tweet {
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
+  display: none
 
 }
 header {

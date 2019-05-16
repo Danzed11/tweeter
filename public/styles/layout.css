@@ -19,6 +19,28 @@ html {
    font-weight: 300i;
  }
 
+nav.nav-button {
+  padding-top: 4px;
+  margin-left: auto;
+  margin-right: 415px;
+}
+
+button.compose:hover{
+  opacity: 1;
+  background-color: white;
+  color: black;
+}
+
+button.compose {
+  font-size: 22px;
+  display: inline;
+  height: 70px;
+  color: #00a087;
+  width: 130px;
+  border-radius: 10px;
+  opacity: .7;
+  border: 1px solid black
+}
 
  main.container {
   margin: auto;

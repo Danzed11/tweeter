@@ -108,20 +108,23 @@ console.log(renderTweets(tweetData))
 
 
 
-  $("#submitform").submit(function(event) {
+$("#submitform").submit(function(event) {
   event.preventDefault();
   let post1 = $.ajax({
               url: '/tweets',
-              method: 'POST' ,
+              type: 'POST' ,
               data:  $("#submitform").serialize(),
               success: $("textarea").val("")
         }),
       get1 = post1.then(function(data) {
               return $.ajax({
               url: '/tweets',
-              method: 'GET',
+              type: 'GET',
               dataType: JSON,
               success: console.log("You've retrieved JSON data!")
         })
-  });
+              
 });   
+//renderTweets(loadTweets());
+
+});

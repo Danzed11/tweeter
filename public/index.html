@@ -28,6 +28,16 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <nav class= "nav-button">
+        <button class="compose">Compose</button>
+        <script>$(".compose").click(function() {
+            $(".new-tweet").slideDown(600, function(){
+                  $("textarea").focus();
+                  $("textarea").select();
+            });
+          });
+        </script>
+      </nav>
     </nav>
 
     <!-- Page-specific (main) content here -->

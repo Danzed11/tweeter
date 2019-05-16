@@ -6,6 +6,7 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() { 
+  loadTweets();
 
 const data = [
   {
@@ -93,79 +94,41 @@ function createTweetElement(tweetData) {
 
 };
 
-
-$("#submitform").submit((event) =>{     
-	event.preventDefault();
-	let $form = $(this),
-	tweet = $form.find("textarea[name='text']").val(),
-	url = $form.attr("action");
-		$.post("/tweets",{text: tweet}).done(data => {
-			loadTweets();
-		});
-	});
+$("#submitform").submit(function(event) {
+  event.preventDefault();
+  const text = this.querySelector('textarea').value;
+  if(isValidTweet(text)) {
+  let post1 = $.ajax({
+              url: '/tweets',
+              type: 'POST' ,
+              data:  $("#submitform").serialize(),
+              success: loadTweets
+    });   
+  }
+});
 
 	function loadTweets() {
 		$.ajax({
 			url: "/tweets",
       method: "GET",
-      success: console.log("Retrieved Tweets")
+      success: function (tweets) {
+        $("textarea").val("");
+        renderTweets(tweets);
+      }
 		})
-		  .then(function (tweets) {
-			$("textarea").val("");
-			renderTweets(tweets);
-		})
-	}
-
-renderTweets(loadTweets());
-
+  }
 });
 
-//   $("#submitform").submit(function(event) {
-//   event.preventDefault();
-//   let $post1 = $.ajax({
-//     url: '/tweets',
-//     method: 'POST' ,
-//     data:  $("#submitform").serialize(),
-//     success: $("textarea").val(""),
-//     loadTweets()
-            
-//   });
-      
 
+//Restrictions on tweet size//
+const isValidTweet = function(text){
+  if(!text){
+    alert("Tweet content is not valid. Tweet something!.");
+  }else if(text.length > 140){
+    alert("You are over 140 characters.");
+  }else{
+    return true;
+  }
 
-// //GET Request from database
-
-// function loadTweets() {
-//   $.ajax({
-//     url: `/tweets`,
-//     method: 'GET',
-//     dataType: "json",
-//     success: function (data) {
-//       console.log('Success: ', data);
-//       renderTweets(data);
-//     }
-//   });
-// }
-// renderTweets(loadTweets());
-
-//Rendering Every new Tweet
-
-
-
-
-// renderTweets(loadTweets);
-
-//   const tweetHTML = `
-//     <article class="shadow" id="tweet">
-//       <header class="shadow tweetheader">
-//         <div>${tweetData.user.name}</div>
-//         <div>${tweetData.user.handle}</div>
-//         <img src="${tweetData.user.avatars.small}"/>
-//       </header>
-//       <p class="centered-tweet">${tweetData.content.text}</p>
-//       <footer class="tweet-footer">${tweetData.created_at}</footer>
-//     </article>
-//   `
-//   return tweetHTML;
-// }
+}
 
