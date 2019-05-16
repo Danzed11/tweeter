@@ -26,7 +26,8 @@ html {
   padding: 20px;
   background-color: white;
   padding-top: 100px;
-  height: 2500px;
+  height: 100%;
+  border-bottom: 1px solid black;
   
   }
 
