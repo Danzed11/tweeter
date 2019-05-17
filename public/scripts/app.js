@@ -59,6 +59,7 @@ function formatTime (time) {
 
 //Render Tweets
 function renderTweets(tweet) {
+  $("#tweets-container").empty();
   for (let i in tweet) {
      $("#tweets-container").prepend(createTweetElement(tweet[i]));
   }

@@ -105,8 +105,16 @@ console.log(renderTweets(tweetData))
 // }
 
 //Convenient AJAX way
-
-
+function loadTweets() {
+  $.ajax({
+    url: "/tweets",
+    method: "GET",
+    success: function (tweets) {
+      $("textarea").val("");
+      renderTweets(tweets);
+    }
+  })
+}
 
 $("#submitform").submit(function(event) {
   event.preventDefault();
@@ -114,17 +122,18 @@ $("#submitform").submit(function(event) {
               url: '/tweets',
               type: 'POST' ,
               data:  $("#submitform").serialize(),
-              success: $("textarea").val("")
-        }),
-      get1 = post1.then(function(data) {
-              return $.ajax({
-              url: '/tweets',
-              type: 'GET',
-              dataType: JSON,
-              success: console.log("You've retrieved JSON data!")
-        })
+              success: loadTweets
+            
               
 });   
 //renderTweets(loadTweets());
 
 });
+
+
+const $button = $("#nav-button").click(function() {
+                  $(".compose").slideDown(4000, function(){
+
+                  });
+});
+
