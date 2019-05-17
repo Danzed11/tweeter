@@ -97,13 +97,17 @@ function createTweetElement(tweetData) {
 $("#submitform").submit(function(event) {
   event.preventDefault();
   const text = this.querySelector('textarea').value;
-  if(isValidTweet(text)) {
-  let post1 = $.ajax({
-              url: '/tweets',
-              type: 'POST' ,
-              data:  $("#submitform").serialize(),
-              success: loadTweets
-    });   
+  if (!$("textarea").val()){
+    $("#empty-error").slideDown().fadeOut(2500)
+  }else if($("textarea").val().length > 140) {
+    $("#hide-empty-error").slideDown().fadeOut(2500)
+  }else{
+    let post1 = $.ajax({
+                url: '/tweets',
+                type: 'POST' ,
+                data:  $("#submitform").serialize(),
+                success: loadTweets
+      });    
   }
 });
 
@@ -122,13 +126,13 @@ $("#submitform").submit(function(event) {
 
 //Restrictions on tweet size//
 const isValidTweet = function(text){
-  if(!text){
-    alert("Tweet content is not valid. Tweet something!.");
-  }else if(text.length > 140){
-    alert("You are over 140 characters.");
+  if (!$("textarea").val()){
+    $("#empty-error").slideDown().fadeOut(2500)
+  }else if($("textarea").val().length > 140) {
+    ("#hide-empty-error").slideDown().fadeOut(2500)
   }else{
     return true;
   }
-
+ 
 }
 
