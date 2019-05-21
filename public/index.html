@@ -31,7 +31,7 @@
       <nav class= "nav-button">
         <button class="compose">Compose</button>
         <script>$(".compose").click(function() {
-            $(".new-tweet").slideDown(600, function(){
+            $(".new-tweet").slideToggle(600, function(){
                   $("textarea").focus();
                   $("textarea").select();
             });
