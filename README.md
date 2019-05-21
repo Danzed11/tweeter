@@ -15,3 +15,6 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+!["Front page"](https://github.com/Danzed11/tweeter/blob/master/docs/Tweeter%20front.png?raw=true)
